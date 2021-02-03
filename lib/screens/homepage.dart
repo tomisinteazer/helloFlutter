@@ -4,7 +4,6 @@ import 'package:hello_flutter/screens/taskpage.dart';
 import 'package:hello_flutter/widgets.dart';
 
 class Homepage extends StatefulWidget {
- 
   @override
   _HomepageState createState() => _HomepageState();
 }
@@ -20,7 +19,7 @@ class _HomepageState extends State<Homepage> {
       padding: EdgeInsets.symmetric(
         horizontal: 24.0,
       ),
-      color: Color(0xFFf6f6f6),
+      color: Color(0xFF181818),
       child: Stack(children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,13 +46,15 @@ class _HomepageState extends State<Homepage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Taskpage(task:snapshot.data[index]),
+                                  builder: (context) =>
+                                      Taskpage(task: snapshot.data[index]),
                                 )).then((value) {
                               setState(() {});
                             });
                           },
                           child: TaskbarCardWidget(
                             title: snapshot.data[index].title,
+                            desc: snapshot.data[index].description,
                           ),
                         );
                       }),
@@ -70,7 +71,9 @@ class _HomepageState extends State<Homepage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Taskpage(task: null,),
+                    builder: (context) => Taskpage(
+                      task: null,
+                    ),
                   )).then((value) {
                 setState(() {});
               });
@@ -79,7 +82,7 @@ class _HomepageState extends State<Homepage> {
               width: 60.0,
               height: 60.0,
               decoration: BoxDecoration(
-                  color: Color(0xFF690018),
+                  color: Color(0xFF06a10b),
                   borderRadius: BorderRadius.circular(20.0)),
               child: Image(
                 image: AssetImage('assets/images/add_icon.png'),

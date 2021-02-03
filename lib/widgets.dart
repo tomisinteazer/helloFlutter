@@ -12,7 +12,7 @@ class TaskbarCardWidget extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 24.0),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0xFF111111),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Column(
@@ -21,7 +21,7 @@ class TaskbarCardWidget extends StatelessWidget {
             Text(
               title ?? "New Task",
               style: TextStyle(
-                  color: Color(0xFF690018),
+                  color: Color(0xFFffffff),
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold),
             ),
@@ -31,7 +31,7 @@ class TaskbarCardWidget extends StatelessWidget {
                 desc ??
                     "add your tasks descriptiion here and we move, Yunno everythin you wanna sort out",
                 style: TextStyle(
-                    color: Color(0xFF333333),
+                    color: Color(0xFF06a10b),
                     height: 1.5,
                     fontSize: 16.0,
                     fontWeight: FontWeight.normal),
@@ -57,18 +57,20 @@ class TodoWidget extends StatelessWidget {
               height: 20.0,
               margin: EdgeInsets.only(right: 16.0),
               decoration: BoxDecoration(
-                  color: isDone ? Color(0xFF690018) : Colors.transparent,
+                  color: isDone ? Color(0xFF06a10b) : Colors.transparent,
                   border: isDone
                       ? null
-                      : Border.all(color: Color(0xff333333), width: 1.5),
+                      : Border.all(color: Color(0xfff3f3f3), width: 1.5),
                   borderRadius: BorderRadius.circular(6.0)),
               child: Image(image: AssetImage('assets/images/check_icon.png'))),
-          Text(
-            text ?? "unamed task",
-            style: TextStyle(
-                color: isDone ? Color(0xff610018) : Color(0xff999999),
-                fontWeight: isDone ? FontWeight.bold : FontWeight.w500,
-                fontSize: 16.0),
+          Flexible(
+            child: Text(
+              text ?? "unamed task",
+              style: TextStyle(
+                  color: isDone ? Color(0xff06a10b) : Color(0xff999999),
+                  fontWeight: isDone ? FontWeight.bold : FontWeight.w500,
+                  fontSize: 16.0),
+            ),
           ),
         ],
       ),
